@@ -1,11 +1,15 @@
-import Typography from '@material-ui/core/Typography';
+import { Switch, Route } from 'react-router-dom';
 
 import Layout from './common/Layout';
+import { Home, History } from './pages';
 
 function App() {
   return (
     <Layout>
-      <Typography variant="h1">Hola Mundo</Typography>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/history" component={History} />
+      </Switch>
     </Layout>
   );
 }

@@ -3,7 +3,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import styled from 'styled-components';
 
-function Header(){
+function Header() {
   return (
     <>
       <StyledAppBar>
@@ -19,6 +19,8 @@ function Header(){
 const StyledAppBar = styled(AppBar)`
   box-shadow: none;
   position: static;
+  background-color: #fafafa;
+  border: 1px solid salmon;
 `
 const StyledToolbar = styled(Toolbar)`
   display: flex;
