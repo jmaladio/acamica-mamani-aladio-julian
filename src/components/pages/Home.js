@@ -5,6 +5,8 @@ import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 
 import ProductGrid from '../common/ProductGrid';
+import CatalogControls from '../common/CatalogControls';
+import heroImage from '../../img/ear-png-277969.png';
 
 const API_URI = process.env.REACT_APP_API_URI;
 const API_KEY = process.env.REACT_APP_API_KEY;
@@ -31,9 +33,10 @@ export function Home() {
     <HomeWrapper>
       <Hero>
         <StyledTypography variant="h2">Electronics</StyledTypography>
+        <img src={heroImage} alt="Happy guy with headsets" height="90%"/>
       </Hero>
       <Controls>
-        Controles
+        <CatalogControls />
       </Controls>
       <ProductGrid products={products}/>
     </HomeWrapper>
@@ -47,23 +50,25 @@ const HomeWrapper = styled.main`
 
 const Hero = styled(Container)`
   display: flex;
-  height: 20vh;
-  background-color: blueviolet;
+  height: 25vh;
+  background-image: linear-gradient(-45deg, #0AD4FA, #6ee8ff);
   align-items: flex-end;
-  justify-content: flex-start;
-  padding: 0 6rem 1rem 6rem;
+  justify-content: space-between;
+  padding: 0 6rem;
 `
 
 const StyledTypography = styled(Typography)`
   font-weight: 700;
   color: #fafafa;
+  margin-bottom: 1rem;
 `
 
 const Controls = styled(Container)`
   display: flex;
-  border: 1px solid olive;
-  height: 10vh;
   padding: 0 6rem;
+  margin-top: 2rem;
   align-items: center;
 `
+
+
 

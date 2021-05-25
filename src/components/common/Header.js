@@ -1,15 +1,17 @@
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import styled from 'styled-components';
+
+import {ReactComponent as AerolabLogo} from '../../img/aerolab-logo.svg';
+import UserControls from './UserControls';
 
 function Header() {
   return (
     <>
       <StyledAppBar>
         <StyledToolbar>
-            <Typography variant="subtitle1">Logo</Typography>
-            <Typography variant="subtitle2">User Interface</Typography>
+            <AerolabLogo />
+            <UserControls />
         </StyledToolbar>
       </StyledAppBar>
     </>
@@ -19,12 +21,12 @@ function Header() {
 const StyledAppBar = styled(AppBar)`
   box-shadow: none;
   position: static;
-  background-color: #fafafa;
-  border: 1px solid salmon;
+  color: black;
 `
 const StyledToolbar = styled(Toolbar)`
   display: flex;
   justify-content: space-between;
+  background-color: #fafafa;
 `
 
 export default Header

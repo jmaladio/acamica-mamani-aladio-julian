@@ -2,9 +2,8 @@ import styled from 'styled-components';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
-import RedeemTwoToneIcon from '@material-ui/icons/RedeemTwoTone';
 
-
+import { ReactComponent as BuyIconBlue } from '../../img/buy-blue.svg'
 
 function ProductCard({ product }) {
   const { category, img, name } = product;
@@ -13,7 +12,7 @@ function ProductCard({ product }) {
     <Grid item xs={3}>
       <StyledPaper>
         <IconWrapper>
-          <StyledRedeemIcon/>
+          <BuyIconBlue/>
         </IconWrapper>
         <figure>
           <ImgWrapper src={img.url} alt={name} />
@@ -40,8 +39,6 @@ const ImgWrapper = styled.img`
 `
 
 const IconWrapper = styled.div`
-  border-radius: 50%;
-  background-color: blueviolet;
   height: 2.5rem;
   width: 2.5rem;
   display: flex;
@@ -50,10 +47,6 @@ const IconWrapper = styled.div`
   position: absolute;
   right: 1rem;
   top: 1rem;
-`
-
-const StyledRedeemIcon = styled(RedeemTwoToneIcon)`
-  color: #fafafa;
 `
 
 export default ProductCard;
