@@ -3,8 +3,8 @@ import Grid from '@material-ui/core/Grid';
 
 import ProductCard from './ProductCard';
 
-function ProductGrid() {
-  const cards = Array(16).fill(null).map((_, index) => <ProductCard key={index} />)
+function ProductGrid({ products }) {
+  const cards = products.map(product => <ProductCard key={product._id} product={product} />)
   return (
     <GridWrapper>
       <Grid container spacing={2}>
@@ -16,8 +16,9 @@ function ProductGrid() {
 
 const GridWrapper = styled.div`
   display: flex;
-  padding: 0.5rem 6rem;
+  padding: 0 6rem 4rem 6rem;
   border: 1px solid papayawhip;
+  margin-top: 2rem;
 `
 
 export default ProductGrid
