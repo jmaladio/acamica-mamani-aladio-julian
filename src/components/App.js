@@ -23,19 +23,21 @@ const headers = {
 function App() {
 
   const [ userInfo, setUserInfo ] = useState(() => ({
-    id: null,
+    _id: null,
     name: null,
     points: null,
     redeemHistory: [],
-    createDate: null
+    createDate: null,
+    getUserInfo: () => getUserInfo()
   }))
 
+  const getUserInfo = async () => {
+    const userInfoFromAPI = await axios.get(`${API_URI}/user/me`, { headers })
+    setUserInfo(s => ({...s, ...userInfoFromAPI.data}))
+  }
+
   useEffect(() => {
-    const getUserInfo = async () => {
-      const userInfoFromAPI = await axios.get(`${API_URI}/user/me`, { headers })
-      setUserInfo(userInfoFromAPI.data)
-    }
-    getUserInfo()
+    getUserInfo();
   }, [])
 
   return (
