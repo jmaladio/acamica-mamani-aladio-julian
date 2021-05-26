@@ -17,7 +17,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import { UserContext } from '../App';
 import { ReactComponent as BuyIconBlue } from '../../img/buy-blue.svg'
 import { ReactComponent as BuyIconWhite } from '../../img/buy-white.svg'
-import { ReactComponent as CoinIcon } from '../../img/coin.svg';
+import CoinIconSVG, { ReactComponent as CoinIcon } from '../../img/coin.svg';
 
 
 const API_URI = process.env.REACT_APP_API_URI;
@@ -54,7 +54,7 @@ function ProductCard({ product }) {
     return (
       <Grid item xs={3}>
         <StyledPaper>
-          <StyledChip label={`Necesitas ${cost-points}`} avatar={<Avatar src={CoinIcon} />} />
+          <StyledChip label={`Necesitas ${cost-points}`} avatar={<Avatar src={CoinIconSVG} />} />
           <figure>
             <ImgWrapper src={img.url} alt={name} />
             <figcaption>
