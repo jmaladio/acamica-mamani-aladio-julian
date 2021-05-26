@@ -32,7 +32,7 @@ export function Home() {
   return (
     <HomeWrapper>
       <Hero>
-        <StyledTypography variant="h2">Electronics</StyledTypography>
+        <StyledTypography variant="h2">Electrónica</StyledTypography>
         <img src={heroImage} alt="Happy guy with headsets" height="90%"/>
       </Hero>
       <Controls>
