@@ -29,7 +29,8 @@ const headers = {
 
 function ProductCard({ product }) {
   const [ active, setActive ] = useState(false);
-  const [ dialogOpen, setDialogOpen ] = useState(false)
+  const [ dialogMessage, setDialogMessage ] = useState("success");
+  const [ dialogOpen, setDialogOpen ] = useState(false);
   const { category, img, name, cost, _id } = product;
   const { points, getUserInfo } = useContext(UserContext);
 
@@ -38,9 +39,11 @@ function ProductCard({ product }) {
       const response = await axios.post(`${API_URI}/redeem`, { productId }, { headers });
       const redeemMessage = response.data;
       if (redeemMessage) {
-        setDialogOpen(true)
+        setDialogMessage("success");
+        setDialogOpen(true);
       }
     } catch (error) {
+      setDialogMessage("error");
       console.error(error);
     }
   }
@@ -103,10 +106,15 @@ function ProductCard({ product }) {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        <DialogTitle id="alert-dialog-title">{"¡Genial!"}</DialogTitle>
+        <DialogTitle id="alert-dialog-title">{dialogMessage === "success" ? "¡Genial!" : "¡Error!"}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            La transacción se ha realizado con éxito
+          {
+            dialogMessage === "success" ?
+            "La transacción se ha realizado con éxito"
+            :
+            "Hubo un problema con la transacción, intente de nuevo"
+          }
           </DialogContentText>
         </DialogContent>
         <DialogActions>
