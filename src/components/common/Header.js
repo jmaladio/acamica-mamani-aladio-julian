@@ -1,6 +1,7 @@
+import { NavLink } from 'react-router-dom';
+import styled from 'styled-components';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import styled from 'styled-components';
 
 import {ReactComponent as AerolabLogo} from '../../img/aerolab-logo.svg';
 import UserControls from './UserControls';
@@ -10,7 +11,9 @@ function Header() {
     <>
       <StyledAppBar>
         <StyledToolbar>
-            <AerolabLogo />
+            <NavLink to="/">
+              <AerolabLogo />
+            </NavLink>
             <UserControls />
         </StyledToolbar>
       </StyledAppBar>
